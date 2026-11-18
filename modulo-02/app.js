@@ -173,6 +173,101 @@ console.log(tarea); //Muestra el objeto original
 console.log(actualizaTarea); //Muestra la copia del objeto con la actualización
 console.log(actualizaTarea.completado); //Muestra el valor de la propiedad completado de la copia del objeto
 
+// METODOS DE PROCESAMIENTO DE COLECCIONES
+
+//METODO MAP
+const precios3 = [1000, 2000, 3000, 4000, 5000];
+const preciosConImpuesto = precios3.map(precio => precio * 1.19); // Aplica un impuesto del 19% a cada preci
+console.log(preciosConImpuesto); // Muestra el arreglo con los precios con impuesto
+
+// METODO FILTER
+const edadesDos = [15, 22, 18, 30, 25, 17];
+const mayoresDeEdad = edadesDos.filter(edad => edad >= 18); // Filtra las edades mayores o iguales a 18
+console.log(mayoresDeEdad); // Muestra el arreglo con las edades mayores de edad
+
+const productosDos = [
+    { nombre: "Laptop", precio: 10000 },
+    { nombre: "Teléfono", precio: 5000 },
+    { nombre: "Tablet", precio: 3000 },
+    { nombre: "Monitor", precio: 2000 },
+];
+const productosCaros = productosDos.filter(producto => producto.precio > 4000); // Filtra los productos con precio mayor a 4000
+console.log(productosCaros); // Muestra el arreglo con los productos caros
+
+// METODO FIND
+const productosTres = [
+    { nombre: "Laptop", precio: 10000 },
+    { nombre: "Teléfono", precio: 5000 },
+    { nombre: "Tablet", precio: 3000 },
+    { nombre: "Monitor", precio: 2000 },
+];
+const encontrado = productosTres.find(producto => producto.nombre === "Tablet"); // Busca el producto con nombre "Tablet"
+console.log(encontrado); // Muestra el producto encontrado
+
+// metodo SOME EVERY
+const notas = [85, 90, 78, 92, 88];
+const hayAprobados = notas.some(nota => nota >= 60);
+console.log(hayAprobados); // Muestra true si hay al menos una nota aprobatoria
+
+// metodo EVERY
+const todasAprobadas = notas.every(nota => nota >= 60);
+console.log(todasAprobadas); // Muestra true si todas las notas son aprobatorias
+
+
+// METODO REDUCE
+const ventasDos = [1000, 2000, 3000, 4000, 5000];
+const totalVentas = ventasDos.reduce((acumulador, venta) => acumulador + venta, 0); // Suma todas las ventas
+console.log(totalVentas); // Muestra el total de ventas
+
+// metodo sort
+const numerosDos = [5, 2, 9, 1, 5, 6];
+const numerosOrdenados = numerosDos.sort((a, b) => a - b); // Ordena los números de menor a mayor
+console.log(numerosOrdenados); // Muestra el arreglo con los números ordenados
+
+const empleados = [
+    {id: 3, nombre: "Ana", salario: 3000, estado:"Activo"},
+    {id: 1, nombre: "Luis", salario: 5000, estado:"Inactivo"},
+    {id: 2, nombre: "Carlos", salario: 4000, estado:"Activo" },
+    {id: 4, nombre: "Maria", salario: 6000, estado:"Inactivo"},
+];
+
+//1. obtener un arreglo con solo los nombres usando map
+//2. obtener empleados activos utilizando filter
+//3. encontrar el empleado  con id: 3 mediante find
+//4. determinar si existe un salario superior a 7000 nediante some
+//5. Verificar si todos los salarios son mayores a cero usando every
+//6. Calcular la suma de los salarios usando reduce
+//7. Ordenar los empleados por salario de menor a mayor usando sort
+
+// 1.
+const nombres = empleados.map(empleados => empleados.nombre);
+console.log(nombres);
+
+// 2.
+const empleadosActivos = empleados.filter(empleado => empleado.estado === "Activo");
+console.log(empleadosActivos);
+
+// 3.
+const empleadoConId = empleados.find(empleados => empleados.id === 3);
+console.log(empleadoConId);
+
+// 4.
+const salario = empleados.some(empleados => empleados.salario >= 7000);
+console.log(salario);
+
+// 5.
+const salario2 = empleados.every(empleados => empleados.salario > 0);
+console.log(salario2);
+
+// 6.
+const sumaSalarios = empleados.reduce((acumulador, salario) => acumulador + salario.salario, 0);
+console.log(sumaSalarios);
+
+// 7.
+const salarioOrdenado = empleados.sort((salarios, orden) => salarios.salario - orden.salario);
+console.log(salarioOrdenado); 
+
+
 
 
 
